@@ -13,7 +13,7 @@ pipelines:
             run-hello-world:
               tasks:
                 - exec:
-                    command: ./scripts/helloworld
+                    command: ./scripts/01-helloworld
   02-BuildMyApp:
     group: MyGroup
     materials:
@@ -27,6 +27,16 @@ pipelines:
             run-unit-test:
               tasks:
                 - exec:
-                    command: echo
-                    arguments:
-                      - `pwd`
+                    command: ./scripts/02-unit-test
+      - build:
+          clean_workspace: true
+          jobs:
+            build-the-app:
+              artifacts:
+                - build:
+                    source: build/libs/ci-workshop.jar
+                    destination: app.jar
+              tasks:
+                - exec:
+                    command: ./scripts/03-build
+
