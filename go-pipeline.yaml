@@ -7,13 +7,29 @@ pipelines:
         git: git@github.com:wanichnun-tw/ci-workshop.git
         branch: master
     stages:
+      - hello:
+          clean_workspace: true
+          jobs:
+            run-hello-world:
+              tasks:
+                - exec:
+                    command: docker
+                    arguments:
+                      - run
+                      - hello-world
+  02-BuildMyApp:
+    group: MyGroup
+    materials:
+      repository:
+        git: git@github.com:wanichnun-tw/ci-workshop.git
+        branch: master
+    stages:
       - test:
           clean_workspace: true
           jobs:
             run-unit-test:
               tasks:
                 - exec:
+                    command: ./batect
                     arguments:
-                      - run
-                      - hello-world
-                    command: docker
+                      - unitTest
