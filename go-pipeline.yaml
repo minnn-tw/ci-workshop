@@ -32,4 +32,4 @@ pipelines:
                 - exec:
                     command: echo
                     arguments:
-                      - $PWD
+                      - ${PWD}
