@@ -4,7 +4,7 @@ pipelines:
     group: MyGroup
     materials:
       repository:
-        git: https://github.com/sobbspt/gocd-sample.git
+        git: https://github.com/wanichnun-tw/ci-workshop.git
         branch: master
     stages:
       - test:
