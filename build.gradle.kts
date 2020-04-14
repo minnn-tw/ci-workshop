@@ -1,5 +1,11 @@
 plugins {
     kotlin("jvm") version "1.3.71"
+    distribution
+    application
+}
+
+application {
+    mainClassName = "TestApp"
 }
 
 repositories {
