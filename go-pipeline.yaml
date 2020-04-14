@@ -29,6 +29,7 @@ pipelines:
                 - exec:
                     command: ./scripts/02-unit-test
       - build:
+          clean_workspace: true
           jobs:
             build-the-app:
               artifacts:
