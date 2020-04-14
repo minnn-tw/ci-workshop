@@ -1,7 +1,7 @@
 {
     docker run --rm -v `pwd`:/app -w="/app" openjdk:8-alpine ./gradlew build
 } || {
-    ./00-chown
+    ./scripts/00-chown
 }
 
-./00-chown
+./scripts/00-chown
