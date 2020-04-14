@@ -1,5 +1,7 @@
 import spark.kotlin.*
 
+class Application
+
 fun main(args: Array<String>) {
     val http: Http = ignite()
 
