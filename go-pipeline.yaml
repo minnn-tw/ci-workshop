@@ -1,6 +1,6 @@
 format_version: 9
 pipelines:
-  SampleApp:
+  01-HelloWorld:
     group: MyGroup
     materials:
       repository:
