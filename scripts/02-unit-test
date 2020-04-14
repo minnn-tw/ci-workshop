@@ -1,7 +1,10 @@
+result=0
+
 {
     docker run --rm -v `pwd`:/app -w="/app" openjdk:8-alpine ./gradlew test
 } || {
-    ./scripts/00-chown
+    result=$?
 }
 
 ./scripts/00-chown
+exit $result
