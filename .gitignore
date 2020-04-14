@@ -9,3 +9,6 @@ build
 .idea/
 lib/
 out/
+.gradle/
+.gradle/*
+.gradle-cache/
