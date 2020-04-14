@@ -13,10 +13,7 @@ pipelines:
             run-hello-world:
               tasks:
                 - exec:
-                    command: docker
-                    arguments:
-                      - run
-                      - hello-world
+                    command: ./scripts/helloworld
   02-BuildMyApp:
     group: MyGroup
     materials:
@@ -32,4 +29,4 @@ pipelines:
                 - exec:
                     command: echo
                     arguments:
-                      - ${PWD}
+                      - `pwd`
