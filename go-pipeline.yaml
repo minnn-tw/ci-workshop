@@ -39,15 +39,3 @@ pipelines:
               tasks:
                 - exec:
                     command: ./scripts/03-build
-      - build:
-          clean_workspace: true
-          jobs:
-            build-the-app:
-              artifacts:
-                - build:
-                    source: build/libs/ci-workshop.jar
-                    destination: app.jar
-              tasks:
-                - exec:
-                    command: ./scripts/03-build
-
