@@ -15,7 +15,24 @@ containers:
       enabled: true
       home_directory: /home/container-user
 
+  gocd-server:
+    image: gocd/gocd-server:v20.2.0
+    ports:
+      - local: 8153
+        container: 8153
+    environment:
+      GOCD_PLUGIN_INSTALL_docker-registry-artifact-plugin: https://github.com/gocd/docker-registry-artifact-plugin/releases/download/v1.0.1-102/docker-registry-artifact-plugin-1.0.1-102.jar
+
+  gocd-agent:
+    image: gocd/gocd-agent-docker-dind:v20.2.0
+    environment:
+      GO_SERVER_URL: http://gocd-server:8153/go
+    privileged: true
+    dependencies:
+      - gocd-server
+
 tasks:
+
   build:
     description: Build the application.
     run:
@@ -27,3 +44,8 @@ tasks:
     run:
       container: build-env
       command: ./gradlew test
+
+  start-agent:
+    description: Start the gocd server and agent
+    run:
+      container: gocd-agent
