@@ -30,6 +30,6 @@ pipelines:
             run-unit-test:
               tasks:
                 - exec:
-                    command: ./batect
+                    command: echo
                     arguments:
-                      - unitTest
+                      - $PWD
