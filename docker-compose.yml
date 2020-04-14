@@ -1,0 +1,13 @@
+version: '3'
+services:
+  gocd-server:
+    image: gocd/gocd-server:v20.2.0
+    ports:
+      - '8153:8153'
+    environment:
+      - GOCD_PLUGIN_INSTALL_docker-registry-artifact-plugin=https://github.com/gocd/docker-registry-artifact-plugin/releases/download/v1.0.1-102/docker-registry-artifact-plugin-1.0.1-102.jar
+  gocd-agent:
+    privileged: true
+    image: gocd/gocd-agent-docker-dind:v20.2.0
+    environment:
+      - GO_SERVER_URL=http://gocd-server:8153/go
