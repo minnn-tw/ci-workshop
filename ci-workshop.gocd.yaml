@@ -1,61 +1,32 @@
+# refer here https://github.com/tomzo/gocd-yaml-config-plugin#setup
+format_version: 1
 environments:
-  example:
+  dev:
     environment_variables:
-      EXAMPLE_DEPLOYMENT: testing
+      DEPLOYMENT: testing
+    secure_variables:
+      ENV_PASSWORD: "This is a fake password"
     pipelines:
-      - yaml-example
+      - example-deploy-testing
+      - build-testing
 pipelines:
-  yamlpipe1:
-    group: simple
-    materials:
-      mygit:  # this is the name of material
-        # says about type of material and url at once
-        git: http://my.example.org/mygit.git
-    stages:
-      - build: # name of stage
-          jobs:
-            build: # name of the job
-              tasks:
-                - exec: # indicates type of task
-                    command: make
-  "yaml-example": # definition of yaml-example pipeline
-    group: yaml-example
+  mypipe1: # definition of mypipe1 pipeline
+    group: mygroup # note that the group name can contain only of alphanumeric & underscore characters
+    display_order: 10
     label_template: "${mygit[:8]}"
-    locking: off
+    lock_behavior: none
     materials:
-      mygit: # this is the name of material
+      ci-workshop:
         # keyword git says about type of material and url at once
-        git: http://my.example.org/mygit.git
-        branch: ci
-      upstream:
-        # type is optional here, material type is implied based on presence of pipeline and stage fields
-        # type: dependency
-        pipeline: yamlpipe1
-        stage: build
+        git: git@github.com:minnn-tw/ci-workshop.git
+        branch: master
     stages: # list of stages in order
-      - build: # name of stage
-          clean_workspace: true
-          jobs:
-            csharp: # name of the job
-              resources:
-                - net45
-              artifacts:
-                - build:
-                    source: bin/
-                    destination: build
-                - test:
-                    source: tests/
-                    destination: test-reports/
-              tabs:
-                report: test-reports/index.html
-              tasks: # ordered list of tasks to execute in job csharp
-                - fetch:
-                    pipeline: yamlpipe1
-                    stage: build
-                    job: build
-                    source: test-bin/
-                    destination: bin/
-                - exec: # indicates type of task
-                    command: make
-                    arguments:
-                      - "VERBOSE=true"
+      - hello-world: # name of stage
+        clean_workspace: true
+        jobs:
+          hello-world: # name of the job
+            tasks: # ordered list of tasks to execute in job
+              - exec: # indicates type of task
+                  command: echo
+                  arguments:
+                    - "hello-world"
