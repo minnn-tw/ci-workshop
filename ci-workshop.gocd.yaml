@@ -2,7 +2,7 @@
 format_version: 1
 pipelines:
   ci-workshop: # pipeline name
-    group: ciworkshop # pipeline group
+    group: ciworkshop-tasks # pipeline group
     label_template: '${ci-workshop[:8]}'
     lock_behavior: none
     materials:
@@ -10,14 +10,6 @@ pipelines:
         git: 'git@github.com:minnn-tw/ci-workshop.git'
         branch: master
     stages:
-      - Echo-Hello-World:
-          jobs:
-            hello-world:
-              tasks:
-                - exec:
-                    command: echo
-                    arguments:
-                      - hello-world
       - Unit-Test:
           clean_workspace: true
           jobs:
