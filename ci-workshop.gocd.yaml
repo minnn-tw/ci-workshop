@@ -1,17 +1,8 @@
 # refer here https://github.com/tomzo/gocd-yaml-config-plugin#setup
 format_version: 1
-environments:
-  dev:
-    environment_variables:
-      DEPLOYMENT: testing
-    secure_variables:
-      ENV_PASSWORD: "This is a fake password"
-    pipelines:
-      - ci-workshop
 pipelines:
-  "ci-workshop": # definition of mypipe1 pipeline
+  ci-workshop: # definition of mypipe1 pipeline
     group: ci_workshop # note that the group name can contain only of alphanumeric & underscore characters
-    display_order: 10
     label_template: "${mygit[:8]}"
     lock_behavior: none
     materials:
@@ -20,7 +11,7 @@ pipelines:
         git: git@github.com:minnn-tw/ci-workshop.git
         branch: master
     stages: # list of stages in order
-      - hello-world: # name of stage
+      - Echo-Hello-World: # name of stage
         clean_workspace: true
         jobs:
           hello-world: # name of the job
