@@ -8,7 +8,7 @@ pipelines:
     materials:
       ci-workshop:
         git: 'git@github.com:minnn-tw/ci-workshop.git'
-        branch: master
+        branch: tasks
     stages:
       - Unit-Test:
           clean_workspace: true
