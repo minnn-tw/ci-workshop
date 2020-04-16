@@ -18,7 +18,7 @@
     cat ~/.ssh/id_rsa-ci-workshop.pub | pbcopy
     ```
     
-## Starting your gocd agent
+## Setting up your pipeline config repo
 
 1. The task has been prebuilt for you, just run `./batect start-gocd`. This will
 start up a gocd server and agent for you.
@@ -57,5 +57,20 @@ our app repo is also our config repo.
     ```
     Remember to add your pipeline group to the config repo!
     `'Allow'` `'Pipeline group'` `'ciworkshop'`.
+    
+    Now check if you can see your pipeline/group appear on the dashboard.
 
 6. Pipeline config reference: <https://github.com/tomzo/gocd-yaml-config-plugin#setup>
+
+## Finally! We can start with the pipelines part! 
+    I'm sorry, haven't done this in ages
+    
+1. Open `ci-workshop.gocd.yaml`. There is already a pre-existing stage there.
+
+    Your tasks now are: 
+    ```
+        - Task 1: run hello world in gocd-agent
+        - Task 2: write a unit test and include in your pipeline and get it to pass
+        - Task 3: get the pipeline to deploy the app
+        - Task 4: More than one environment with diff config
+    ```
