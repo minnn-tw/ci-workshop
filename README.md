@@ -44,7 +44,7 @@ Check whether the agent has been registered, if it's still in pending state, ena
         ```
     - Adding known hosts manually lol
         ```
-        docker exec -it [server/agent-hash] bash
+        docker exec -it -u go [server/agent-hash] bash
         git ls-remote git@github.com:[repo-name].git refs/heads/master
         ```
 
@@ -56,7 +56,7 @@ our app repo is also our config repo.
     ```
     git@github.com:[repo-name].git
     ```
-5. Add your pipeline group to the config repo.
+    Remember to add your pipeline group to the config repo!
     `'Allow'` `'Pipeline group'` `'ciworkshop'`.
 
 6. Pipeline config reference: <https://github.com/tomzo/gocd-yaml-config-plugin#setup>
