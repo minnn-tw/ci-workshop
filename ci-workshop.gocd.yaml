@@ -1,22 +1,21 @@
-# refer here https://github.com/tomzo/gocd-yaml-config-plugin#setup
+---
 format_version: 1
 pipelines:
-  ci-workshop: # definition of mypipe1 pipeline
-    group: ci_workshop # note that the group name can contain only of alphanumeric & underscore characters
-    label_template: "${mygit[:8]}"
+  ci-workshop: # pipeline name
+    group: ci_workshop # pipeline group
+    label_template: '${mygit[:8]}'
     lock_behavior: none
     materials:
       ci-workshop:
-        # keyword git says about type of material and url at once
-        git: git@github.com:minnn-tw/ci-workshop.git
+        git: 'git@github.com:minnn-tw/ci-workshop.git'
         branch: master
-    stages: # list of stages in order
-      - Echo-Hello-World: # name of stage
-        clean_workspace: true
-        jobs:
-          hello-world: # name of the job
-            tasks: # ordered list of tasks to execute in job
-              - exec: # indicates type of task
-                  command: echo
-                  arguments:
-                    - "hello-world"
+    stages:
+      - Echo-Hello-World:
+          clean_workspace: true
+          jobs:
+            hello-world:
+              tasks:
+                - exec:
+                    command: echo
+                    arguments:
+                      - hello-world
