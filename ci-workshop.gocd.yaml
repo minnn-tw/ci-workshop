@@ -11,7 +11,6 @@ pipelines:
         branch: master
     stages:
       - Echo-Hello-World:
-          clean_workspace: true
           jobs:
             hello-world:
               tasks:
@@ -19,3 +18,12 @@ pipelines:
                     command: echo
                     arguments:
                       - hello-world
+      - Unit-Test:
+          clean_workspace: true
+          jobs:
+            run-test:
+              tasks:
+                - exec:
+                    command: ./batect
+                    arguments:
+                      - unitTest
