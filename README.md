@@ -29,18 +29,31 @@ Check whether the agent has been registered, if it's still in pending state, ena
 3. !! Sad manual step !! 
     So for some reason, the .ssh file is created under the root user instead of go user.
     
-    - Get your server hash:
+    - Get your server & agent hash:
         ```
-        docker ps (get your server hash)
+        docker ps
         ```
     - Check your .ssh permissions
         ```
-        docker exec -u root [server-hash] bash -c "ls -la /home/go/"
+        docker exec -u root [server/agent-hash] bash -c "ls -la /home/go/"
         ```
     - If .ssh belongs to root, run this command to change the owner to go
     
         ```
-        docker exec -u root [server-hash] bash -c "chown -R go /home/go/.ssh"
+        docker exec -u root [server/agent-hash] bash -c "chown -R go /home/go/.ssh"
+        ```
+    - Adding known hosts manually lol
+        ```
+        docker exec -it [server/agent-hash] bash
+        git ls-remote git@github.com:[repo-name].git refs/heads/master
         ```
 
-4. Go to config repo 
+4. Go to config repo and create a new config repo to track. Ours is simple in this case,
+our app repo is also our config repo.
+
+    Add a material and name the config repo
+
+    ```
+    git@github.com:[repo-name].git
+    ```
+
