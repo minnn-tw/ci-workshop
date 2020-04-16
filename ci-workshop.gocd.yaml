@@ -2,8 +2,8 @@
 format_version: 1
 pipelines:
   ci-workshop: # pipeline name
-    group: ci_workshop # pipeline group
-    label_template: '${mygit[:8]}'
+    group: ciworkshop # pipeline group
+    label_template: '${ci-workshop[:8]}'
     lock_behavior: none
     materials:
       ci-workshop:
