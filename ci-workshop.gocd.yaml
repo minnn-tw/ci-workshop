@@ -7,11 +7,10 @@ environments:
     secure_variables:
       ENV_PASSWORD: "This is a fake password"
     pipelines:
-      - example-deploy-testing
-      - build-testing
+      - ci-workshop
 pipelines:
-  mypipe1: # definition of mypipe1 pipeline
-    group: mygroup # note that the group name can contain only of alphanumeric & underscore characters
+  "ci-workshop": # definition of mypipe1 pipeline
+    group: ci_workshop # note that the group name can contain only of alphanumeric & underscore characters
     display_order: 10
     label_template: "${mygit[:8]}"
     lock_behavior: none
