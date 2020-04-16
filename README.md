@@ -56,5 +56,7 @@ our app repo is also our config repo.
     ```
     git@github.com:[repo-name].git
     ```
+5. Add your pipeline group to the config repo.
+    `'Allow'` `'Pipeline group'` `'ciworkshop'`.
 
-5. Pipeline config reference: <https://github.com/tomzo/gocd-yaml-config-plugin#setup>
+6. Pipeline config reference: <https://github.com/tomzo/gocd-yaml-config-plugin#setup>
