@@ -1,7 +1,7 @@
 ---
 format_version: 1
 pipelines:
-  ci-workshop: # pipeline name
+  ci-workshop-tasks: # pipeline name
     group: ciworkshop-tasks # pipeline group
     label_template: '${ci-workshop[:8]}'
     lock_behavior: none
