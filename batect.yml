@@ -27,12 +27,15 @@ containers:
         container: 8153
 
   gocd-agent:
-    image: gocd/gocd-agent-docker-dind:v20.2.0
+    build_directory: ./docker/gocd-agent/
     environment:
       GO_SERVER_URL: http://gocd-server:8153/go
     volumes:
       - local: ~/.ssh/id_rsa-ci-workshop
         container: /home/go/.ssh/id_rsa
+      - local: .gradle-cache
+        container: /home/container-user/.gradle
+        options: cached
     privileged: true
     dependencies:
       - gocd-server

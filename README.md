@@ -35,7 +35,7 @@ Check whether the agent has been registered, if it's still in pending state, ena
         ```
     - Check your .ssh permissions
         ```
-        docker exec -u root [server/agent-hash] bash -c "ls -la /home/go/"
+        docker exec [server/agent-hash] bash -c "ls -la /home/go/"
         ```
     - If .ssh belongs to root, run this command to change the owner to go
     
@@ -44,8 +44,7 @@ Check whether the agent has been registered, if it's still in pending state, ena
         ```
     - Adding known hosts manually lol
         ```
-        docker exec -it -u go [server/agent-hash] bash
-        git ls-remote git@github.com:[repo-name].git refs/heads/master
+        docker exec [server/agent-hash] bash -c "ssh-keyscan -H github.com >> ~/.ssh/known_hosts"
         ```
 
 4. Go to config repo and create a new config repo to track. Ours is simple in this case,
