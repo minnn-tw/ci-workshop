@@ -1,8 +1,7 @@
----
 format_version: 1
 pipelines:
-  ci-workshop-tasks: # pipeline name
-    group: ciworkshop-tasks # pipeline group
+  ci-workshop-tasks:
+    group: ciworkshop-tasks
     label_template: '${ci-workshop[:8]}'
     lock_behavior: none
     materials:
@@ -19,11 +18,11 @@ pipelines:
                     command: ./batect
                     arguments:
                       - unitTest
-#      - Build-Image:
-#          jobs:
-#            build:
-#              tasks:
-#                - exec:
-#                    command: ./gradlew
-#                    arguments:
-#                      - build
+      - Build-Image:
+          jobs:
+            build-image:
+              tasks:
+                - exec:
+                    command: ./gradlew
+                    arguments:
+                      - build
