@@ -19,6 +19,9 @@ pipelines:
                     arguments:
                       - unitTest
       - Build-Image:
+          approval:
+            type: auto
+            allow_only_on_success: true
           jobs:
             build-image:
               tasks:
