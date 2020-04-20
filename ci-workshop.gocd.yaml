@@ -22,7 +22,8 @@ pipelines:
       - Build-Image:
           jobs:
             build:
-              - exec:
-                  command: ./gradlew
-                  arguments:
-                    - build
+              tasks:
+                - exec:
+                    command: ./gradlew
+                    arguments:
+                      - build
