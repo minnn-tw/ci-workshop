@@ -62,7 +62,8 @@ our app repo is also our config repo.
 
 6. Pipeline config reference: <https://github.com/tomzo/gocd-yaml-config-plugin#setup>
 
-## Finally! We can start with the pipelines part! 
+
+## Finally! We can finally build our pipeline!
     I'm sorry, haven't done this in ages
     
 1. Open `ci-workshop.gocd.yaml`. There is already a pre-existing stage there.
