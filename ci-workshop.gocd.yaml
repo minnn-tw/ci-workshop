@@ -19,11 +19,11 @@ pipelines:
                     command: ./batect
                     arguments:
                       - unitTest
-      - Build-Image:
-          jobs:
-            build:
-              tasks:
-                - exec:
-                    command: ./gradlew
-                    arguments:
-                      - build
+#      - Build-Image:
+#          jobs:
+#            build:
+#              tasks:
+#                - exec:
+#                    command: ./gradlew
+#                    arguments:
+#                      - build
