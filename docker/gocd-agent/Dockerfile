@@ -2,6 +2,6 @@ FROM gocd/gocd-agent-docker-dind:v20.2.0
 
 USER root
 RUN apk update
-RUN apk add openjdk11
+RUN apk --no-cache add openjdk8
 
 USER go
