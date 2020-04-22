@@ -15,6 +15,22 @@ containers:
       enabled: true
       home_directory: /home/container-user
 
+  image-build-env:
+    build_directory: ./docker/image-build-env/
+    volumes:
+      - local: .
+        container: /code
+        options: cached
+      - local: /var/run/docker.sock
+        container: /var/run/docker.sock
+    working_directory: /code
+
+  workshop-app:
+    image: ci-workshop
+    ports:
+      - local: 4567
+        container: 4567
+
   gocd-server:
     image: gocd/gocd-server:v20.2.0
     environment:
@@ -42,11 +58,21 @@ containers:
 
 tasks:
 
+  startApp:
+    run:
+      container: workshop-app
+
   build:
     description: Build the application.
     run:
       container: build-env
       command: ./gradlew build
+
+  buildImage:
+    description: Build application Image
+    run:
+      container: image-build-env
+      command: ./gradlew jibDockerBuild
 
   unitTest:
     description: Run the unit tests.

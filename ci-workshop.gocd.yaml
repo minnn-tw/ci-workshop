@@ -29,3 +29,11 @@ pipelines:
                     command: ./gradlew
                     arguments:
                       - build
+#      - Deploy-App:
+#          jobs:
+#            deploy-image:
+#              tasks:
+#                - exec:
+#                    command: ./batect
+#                    argument:
+#                      - start-app # but doing this will jsut run in endlessly on the server/agent
