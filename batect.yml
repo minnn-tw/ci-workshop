@@ -15,6 +15,12 @@ containers:
       enabled: true
       home_directory: /home/container-user
 
+  workshop-app:
+    image: ci-workshop
+    ports:
+      - local: 4567
+        container: 4567
+
   gocd-server:
     image: gocd/gocd-server:v20.2.0
     environment:
@@ -47,6 +53,11 @@ tasks:
     run:
       container: build-env
       command: ./gradlew build
+
+  runApp:
+    description: starts up a local app
+    run:
+      container: workshop-app
 
   unitTest:
     description: Run the unit tests.
