@@ -54,7 +54,13 @@ tasks:
       container: build-env
       command: ./gradlew build
 
-  runApp:
+  buildImage:
+    description: Build application Image
+    run:
+      container: image-build-env
+      command: ./gradlew jibDockerBuild
+
+  runApp: # localhost:4567
     description: starts up a local app
     run:
       container: workshop-app

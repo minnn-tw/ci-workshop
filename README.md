@@ -72,6 +72,7 @@ our app repo is also our config repo.
     ```
         - Task 1: run hello world in gocd-agent
         - Task 2: write a unit test and include in your pipeline and get it to pass
+        ===== < This part probably can't be done on local> =======
         - Task 3: get the pipeline to deploy the app
         - Task 4: More than one environment with diff config
     ```
