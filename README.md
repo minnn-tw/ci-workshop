@@ -26,7 +26,7 @@ start up a gocd server and agent for you.
 2. Head to `localhost:8153` to see if the gocd server has been started.
 Check whether the agent has been registered, if it's still in pending state, enable it.
 
-3. !! Sad manual step !! 
+3. !! Sad manual step (But you only have to worry about this if you're setting up .git and not https) !!  
     So for some reason, the .ssh file is created under the root user instead of go user.
     
     - Get your server & agent hash:
