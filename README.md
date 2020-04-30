@@ -42,12 +42,13 @@ Check whether the agent has been registered, if it's still in pending state, ena
         ```
         docker exec -u root [server/agent-hash] bash -c "chown -R go /home/go/.ssh"
         ```
-    - Adding known hosts manually lol
+        
+4. Add known hosts manually (for now)
         ```
         docker exec [server/agent-hash] bash -c "ssh-keyscan -H github.com >> ~/.ssh/known_hosts"
         ```
 
-4. Go to config repo and create a new config repo to track. Ours is simple in this case,
+5. Go to config repo and create a new config repo to track. Ours is simple in this case,
 our app repo is also our config repo.
 
     Add a material and name the config repo
@@ -65,7 +66,7 @@ our app repo is also our config repo.
     
     Now check if you can see your pipeline/group appear on the dashboard.
 
-6. Pipeline config reference: <https://github.com/tomzo/gocd-yaml-config-plugin#setup>
+7. Pipeline config reference: <https://github.com/tomzo/gocd-yaml-config-plugin#setup>
 
 
 ## Finally! We can finally build our pipeline!

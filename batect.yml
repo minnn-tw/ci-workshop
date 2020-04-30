@@ -23,6 +23,13 @@ containers:
 
   image-build-env:
     build_directory: ./docker/image-build-env
+    volumes:
+      - local: .
+        container: /code
+        options: cached
+      - local: .gradle-cache
+        container: /home/container-user/.gradle
+        options: cached
 
   gocd-server:
     image: gocd/gocd-server:v20.2.0
