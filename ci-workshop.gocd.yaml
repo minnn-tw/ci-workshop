@@ -28,3 +28,12 @@ pipelines:
                     command: ./batect
                     arguments:
                       - unitTest
+      - Build-Image:
+          clean-workspace: true
+          jobs:
+            build-image:
+              tasks:
+                - exec:
+                    command: ./batect
+                    arguments:
+                      - buildImage
