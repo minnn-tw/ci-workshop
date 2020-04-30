@@ -21,6 +21,9 @@ containers:
       - local: 4567
         container: 4567
 
+  image-build-env:
+    build_directory: ./docker/image-build-env
+
   gocd-server:
     image: gocd/gocd-server:v20.2.0
     environment:
