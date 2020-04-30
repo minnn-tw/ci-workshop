@@ -19,15 +19,6 @@ pipelines:
                     command: echo
                     arguments:
                       - hello-world
-      - Run-Unit-Test:
-          clean-workspace: true
-          jobs:
-            unit-test:
-              tasks:
-                - exec:
-                    command: ./batect
-                    arguments:
-                      - unitTest
       - Build-Image:
           clean-workspace: true
           jobs:
@@ -37,3 +28,12 @@ pipelines:
                     command: ./batect
                     arguments:
                       - buildImage
+      - Run-Unit-Test:
+          clean-workspace: true
+          jobs:
+            unit-test:
+              tasks:
+                - exec:
+                    command: ./batect
+                    arguments:
+                      - unitTest
