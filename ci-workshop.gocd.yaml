@@ -19,3 +19,12 @@ pipelines:
                     command: echo
                     arguments:
                       - hello-world
+      - Run-Unit-Test:
+          clean-workspace: true
+          jobs:
+            unit-test:
+              tasks:
+                - exec:
+                    command: ./batect
+                    arguments:
+                      - unitTest
