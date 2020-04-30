@@ -55,6 +55,11 @@ our app repo is also our config repo.
     ```
     git@github.com:[repo-name].git
     ```
+    OR
+    ```
+    https://github.com/[username]/[repo-name].git
+    ```
+    
     Remember to add your pipeline group to the config repo!
     `'Allow'` `'Pipeline group'` `'ciworkshop'`.
     
